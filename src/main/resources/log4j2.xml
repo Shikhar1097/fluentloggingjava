@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="com.wywy.log4j.appender">
+    <Appenders>
+        <Fluency name="fluency" tag="wrapper.test">
+            <!-- all settings are optional, see defaultFluency() for default values -->
+            <!-- you can add as may fields as you like (or none at all) -->
+            <StaticField name="application">testapp</StaticField>
+            <Server host="localhost" port="24224"/>
+            <!--            <FluencyConfig-->
+            <!--                    ackResponseMode="true"-->
+            <!--                    fileBackupDir="/tmp/fluency"-->
+            <!--                    bufferChunkInitialSize="4194304"-->
+            <!--                    bufferChunkRetentionSize="16777216"-->
+            <!--                    maxBufferSize="268435456"-->
+            <!--                    waitUntilBufferFlushed="30"-->
+            <!--                    waitUntilFlusherTerminated="40"-->
+            <!--                    flushIntervalMillis="200"-->
+            <!--                    senderMaxRetryCount="12" />-->
+        </Fluency>
+    </Appenders>
+    <Loggers>
+        <root level="info"> <!-- We log everything -->
+            <appender-ref ref="fluency"/>
+        </root>
+    </Loggers>
+</Configuration>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<Configuration status="warn" name="MyApp" packages="">-->
+<!--<Appenders>-->
+<!--    <TLSSyslog name="bsd" host="localhost" port="24224">-->
+<!--        <SSL>-->
+<!--            <KeyStore location="${sys:user.home}/ssl/keystore.jks" password="password"/>-->
+<!--            <TrustStore location="${sys:user.home}/ssl/truststore" password="password"/>-->
+<!--        </SSL>-->
+<!--    </TLSSyslog>-->
+<!--</Appenders>-->
+<!--<Loggers>-->
+<!--    <Root level="error">-->
+<!--        <AppenderRef ref="bsd"/>-->
+<!--    </Root>-->
+<!--</Loggers>-->
+<!--</Configuration>-->
